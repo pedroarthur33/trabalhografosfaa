@@ -3,8 +3,10 @@ package FAA.TG.Algoritmos.Profundidade;
 import FAA.TG.Algoritmos.Grafos.Grafo;
 
 /**
- *
- * @author Eduardo
+ * Todos os vértices sao iniciados branco
+ * Quando for descoberto pela primeira vez se torna cinza
+ * E Preto qdo sua lista de adjacentes forem todos visitados
+ * @author Diego, Eduardo e Susan
  */
 public class BuscaEmProfundidade {
 
