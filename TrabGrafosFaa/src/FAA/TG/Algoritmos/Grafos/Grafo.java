@@ -5,8 +5,8 @@
 package FAA.TG.Algoritmos.Grafos;
 
 /**
- *
- * @author diego
+ * 
+ * @author Diego, Eduardo e Susan
  */
 public class Grafo {
 
@@ -45,11 +45,13 @@ public class Grafo {
         }
         
     }
+
     private int cab[], prox[], peso[];
     private int pos[];
     // posição atual ao se percorrer os adjs de um vértice v
     private int numVertices, proxDisponivel;
 
+    
     public int[] getCab() {
         return cab;
     }
@@ -106,10 +108,10 @@ public class Grafo {
         this.numVertices = numVertices;
         this.pos = new int[this.numVertices];
         for (int i = 0; i < this.numVertices; i++) {
-            this.prox[ i] = 0;
-            this.cab[ i] = i;
-            this.peso[ i] = 0;
-            this.pos[ i] = i;
+            this.prox[i] = 0;
+            this.cab[i] = i;
+            this.peso[i] = 0;
+            this.pos[i] = i;
         }
         this.proxDisponivel = this.numVertices;
     }
@@ -120,10 +122,10 @@ public class Grafo {
         } else {
             int ind = this.proxDisponivel++;
             this.prox[ this.cab[v1]] = ind;
-            this.cab[ ind] = v2;
+            this.cab[ind] = v2;
             this.cab[v1] = ind;
-            this.prox[ ind] = 0;
-            this.peso[ ind] = peso;
+            this.prox[ind] = 0;
+            this.peso[ind] = peso;
         }
     }
 
@@ -140,18 +142,26 @@ public class Grafo {
         return (this.prox[v] == 0);
     }
 
+    /**
+     * Retorna a primeira aresta que o vértice v participa ou
+     * @param v
+     * @return 
+     */
     public Aresta primeiroListaAdj(int v) {
-        // Retorna a primeira aresta que o vértice v participa ou
+        
         // null se a lista de adjacência de v for vazia
         this.pos[v] = v;
         return this.proxAdj(v);
     }
-
-    public Aresta proxAdj(int v) {
-// Retorna a próxima aresta que o vértice v participa ou
-// null se a lista de adjacência de v estiver no fim
+/**
+ * Retorna a próxima aresta que o vértice v participa ou
+ * @param v
+ * @return 
+ */
+    public Aresta proxAdj(int v) { 
         this.pos[v] = this.prox[ this.pos[v]];
-        if (this.pos[v] == 0) {
+        if (this.pos[v] == 0) { // null se a lista de adjacência de v estiver no fim
+
             return null;
         } else {
             return new Aresta(v, this.cab[pos[v]], this.peso[pos[v]]);
