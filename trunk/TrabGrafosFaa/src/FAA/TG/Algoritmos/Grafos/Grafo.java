@@ -10,6 +10,22 @@ package FAA.TG.Algoritmos.Grafos;
  */
 public class Grafo {
 
+    public Grafo(int numVertices, int numArestas) {
+        int tam = numVertices + 2 * numArestas;
+        this.cab = new int[tam];
+        this.prox = new int[tam];
+        this.peso = new int[tam];
+        this.numVertices = numVertices;
+        this.pos = new int[this.numVertices];
+        for (int i = 0; i < this.numVertices; i++) {
+            this.prox[i] = 0;
+            this.cab[i] = i;
+            this.peso[i] = 0;
+            this.pos[i] = i;
+        }
+        this.proxDisponivel = this.numVertices;
+    }
+      
     public static class Aresta {
 
         private int v1, v2, peso;
@@ -51,7 +67,6 @@ public class Grafo {
     // posição atual ao se percorrer os adjs de um vértice v
     private int numVertices, proxDisponivel;
 
-    
     public int[] getCab() {
         return cab;
     }
@@ -98,22 +113,6 @@ public class Grafo {
 
     public void setProxDisponivel(int proxDisponivel) {
         this.proxDisponivel = proxDisponivel;
-    }
-
-    public Grafo(int numVertices, int numArestas) {
-        int tam = numVertices + 2 * numArestas;
-        this.cab = new int[tam];
-        this.prox = new int[tam];
-        this.peso = new int[tam];
-        this.numVertices = numVertices;
-        this.pos = new int[this.numVertices];
-        for (int i = 0; i < this.numVertices; i++) {
-            this.prox[i] = 0;
-            this.cab[i] = i;
-            this.peso[i] = 0;
-            this.pos[i] = i;
-        }
-        this.proxDisponivel = this.numVertices;
     }
 
     public void insereAresta(int v1, int v2, int peso) {
