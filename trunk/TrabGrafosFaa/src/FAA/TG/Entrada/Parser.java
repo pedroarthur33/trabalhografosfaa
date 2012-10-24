@@ -4,6 +4,7 @@
  */
 package FAA.TG.Entrada;
 
+import FAA.TG.Algoritmos.Grafos.Grafo;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -13,7 +14,7 @@ import java.util.StringTokenizer;
 
 public class Parser {
     
-    String [][] matriz = null;
+    int [][] matriz = null;
     
     public Parser(File selectedFile) {
         String linha = null;
@@ -34,9 +35,9 @@ public class Parser {
                 String dados = st.nextToken();
                 System.out.print(dados);
                 temp = dados.split("\\,");
-                if (matriz == null) {matriz = new String[temp.length][temp.length];}
+                if (matriz == null) {matriz = new int[temp.length][temp.length];}
                 for(j = 0; j < temp.length; j++){
-                    matriz[i][j] = temp[j];
+                    matriz[i][j] = Integer.parseInt(temp[j]);
                 }
                 j = 0;
                 i++;
@@ -51,12 +52,27 @@ public class Parser {
         }
     }
     
-    public void ParserBFSDFS(){
+    public void ParserBFSDFS(Grafo grafo){
         
-        
+        int i ;
+        int j;
+        for(i = 0 ;i < matriz.length; i++){
+            for(j =0; j <matriz.length; j++){
+                if (matriz[i][j] != 0){
+                    grafo.insereAresta(i, j, 0);
+                }
+            }
+            j = 0;
+        }
+        System.out.println("");
     }
 
     public void ParserDijkstra() throws FileNotFoundException, IOException {
 
     }
+
+    public int[][] getMatriz() {
+        return matriz;
+    }
+    
 }

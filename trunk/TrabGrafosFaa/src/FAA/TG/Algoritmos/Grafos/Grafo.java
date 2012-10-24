@@ -126,6 +126,7 @@ public class Grafo {
             this.prox[ind] = 0;
             this.peso[ind] = peso;
         }
+        //System.out.println("");
     }
 
     public boolean existeAresta(int v1, int v2) {
