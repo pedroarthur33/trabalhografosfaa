@@ -111,6 +111,7 @@ public class Principal extends javax.swing.JFrame {
         
         grafo = new Grafo(parser.getMatriz().length,parser.getMatriz().length);
         parser.ParserBFSDFS(grafo);
+        grafo.imprime();
         
     }//GEN-LAST:event_jMenuItemlarguraActionPerformed
 

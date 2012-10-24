@@ -59,7 +59,7 @@ public class Parser {
         for(i = 0 ;i < matriz.length; i++){
             for(j =0; j <matriz.length; j++){
                 if (matriz[i][j] != 0){
-                    grafo.insereAresta(i, j, 0);
+                    grafo.insereAresta(i+1, j+1, 0);
                 }
             }
             j = 0;
