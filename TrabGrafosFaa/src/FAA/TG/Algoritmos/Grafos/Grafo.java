@@ -11,7 +11,7 @@ package FAA.TG.Algoritmos.Grafos;
 public class Grafo {
 
     public Grafo(int numVertices, int numArestas) {
-        int tam = numVertices + 2 * numArestas;
+        int tam = numVertices + (2 * numArestas);
         this.cab = new int[tam];
         this.prox = new int[tam];
         this.peso = new int[tam];
