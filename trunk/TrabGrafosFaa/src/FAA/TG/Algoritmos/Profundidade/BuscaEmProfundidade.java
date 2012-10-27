@@ -24,7 +24,7 @@ public class BuscaEmProfundidade {
         antecessor = new int[n];
     }
 
-    private int visitaDfs(int u, int tempo, int cor[]) {
+    public int visitaDfs(int u, int tempo, int cor[]) {
         cor[u] = cinza;
         this.d[u] = ++tempo;
         if (!this.grafo.listaAdjVazia(u)) {

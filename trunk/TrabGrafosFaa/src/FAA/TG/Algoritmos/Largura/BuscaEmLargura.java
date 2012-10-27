@@ -26,7 +26,7 @@ public class BuscaEmLargura {
         this.antecessor = new int[n];
     }
 
-    private void visitaBfs(int u, int cor[]) throws Exception {
+    public void visitaBfs(int u, int cor[]) throws Exception {
         cor[u] = cinza;
         this.d[u] = 0;
         Fila fila = new Fila();
