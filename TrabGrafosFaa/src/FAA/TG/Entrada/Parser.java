@@ -67,7 +67,19 @@ public class Parser {
         System.out.println("");
     }
 
-    public void ParserDijkstra() throws FileNotFoundException, IOException {
+    public void ParserDijkstra(Grafo grafo) throws FileNotFoundException, IOException {
+        
+        int i ;
+        int j;
+        for(i = 0 ;i < matriz.length; i++){
+            for(j =0; j <matriz.length; j++){
+                if (matriz[i][j] != 0){
+                    grafo.insereAresta(i+1, j+1, matriz[i][j]);
+                }
+            }
+            j = 0;
+        }
+        System.out.println("");
 
     }
 

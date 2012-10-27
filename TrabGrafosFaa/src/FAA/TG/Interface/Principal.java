@@ -4,9 +4,16 @@
  */
 package FAA.TG.Interface;
 
+import FAA.TG.Algoritmos.Dijkstra.Dijkstra;
 import FAA.TG.Algoritmos.Grafos.Grafo;
+import FAA.TG.Algoritmos.Largura.BuscaEmLargura;
+import FAA.TG.Algoritmos.Profundidade.BuscaEmProfundidade;
 import FAA.TG.Entrada.Parser;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 
 /**
@@ -66,9 +73,19 @@ public class Principal extends javax.swing.JFrame {
         jMenu2.setText("Algoritmos");
 
         jMenuItemDijkstra.setText("Dijkstra");
+        jMenuItemDijkstra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemDijkstraActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItemDijkstra);
 
         jMenuItemprofundidade.setText("Profundidade");
+        jMenuItemprofundidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemprofundidadeActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItemprofundidade);
 
         jMenuItemlargura.setText("Largura");
@@ -111,9 +128,40 @@ public class Principal extends javax.swing.JFrame {
         
         grafo = new Grafo(parser.getMatriz().length,parser.getMatriz().length);
         parser.ParserBFSDFS(grafo);
-        grafo.imprime();
+        //grafo.imprime();
+        BuscaEmLargura largura = new BuscaEmLargura(grafo);
+        try {
+            largura.visitaBfs(grafo.getNumVertices(), grafo.getCab());
+        } catch (Exception ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }//GEN-LAST:event_jMenuItemlarguraActionPerformed
+
+    private void jMenuItemprofundidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemprofundidadeActionPerformed
+        
+        grafo = new Grafo(parser.getMatriz().length,parser.getMatriz().length);
+        parser.ParserBFSDFS(grafo);
+        //grafo.imprime();
+        BuscaEmProfundidade profundidade = new BuscaEmProfundidade(grafo);
+        profundidade.visitaDfs(WIDTH, WIDTH, grafo.getCab());
+    }//GEN-LAST:event_jMenuItemprofundidadeActionPerformed
+
+    private void jMenuItemDijkstraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemDijkstraActionPerformed
+        
+        grafo = new Grafo(parser.getMatriz().length,parser.getMatriz().length);
+        try {
+            parser.ParserDijkstra(grafo);
+            Dijkstra dijkstra = new Dijkstra(grafo);
+            dijkstra.imprimeCaminho(0, grafo.getNumVertices());
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+    }//GEN-LAST:event_jMenuItemDijkstraActionPerformed
 
     /**
      * @param args the command line arguments
