@@ -8,7 +8,7 @@ import FAA.TG.Algoritmos.Fila.Fila;
 import FAA.TG.Algoritmos.Grafos.Grafo;
 
 /**
- * 
+ *
  * @author diego
  */
 public class BuscaEmLargura {
@@ -21,12 +21,12 @@ public class BuscaEmLargura {
 
     public BuscaEmLargura(Grafo grafo) {
         this.grafo = grafo;
-        int n = this.grafo.numVertices();
+        int n = this.grafo.getNumVertices();
         this.d = new int[n];
         this.antecessor = new int[n];
     }
 
-    public void visitaBfs(int u, int cor[]) throws Exception {
+    public Grafo visitaBfs(int u, int cor[]) throws Exception {
         cor[u] = cinza;
         this.d[u] = 0;
         Fila fila = new Fila();
@@ -49,5 +49,47 @@ public class BuscaEmLargura {
             }
         }
         cor[u] = preto;
+        return grafo;
+    }
+
+    public void buscaEmLargura() throws Exception {
+        int cor[] = new int[this.grafo.getNumVertices()];
+        for (int u = 0; u < grafo.getNumVertices(); u++) {
+            cor[u] = branco;
+            this.d[u] = Integer.MAX_VALUE;
+            this.antecessor[u] = -1;
+        }
+        for (int u = 0; u < grafo.getNumVertices(); u++) {
+            if (cor[u] == branco) {
+                this.visitaBfs(u, cor);
+            }
+        }
+    }
+
+    public int[] getD() {
+        return d;
+    }
+
+    public void setD(int[] d) {
+        this.d = d;
+    }
+
+    public int[] getAntecessor() {
+        return antecessor;
+    }
+
+    public void setAntecessor(int[] antecessor) {
+        this.antecessor = antecessor;
+    }
+
+    public void imprimeCaminho(int origem, int v) {
+        if (origem == v) {
+            System.out.println(origem);
+        } else if (this.antecessor[v] == -1) {
+            System.out.println("Nao existe caminho de " + origem + " ate " + v);
+        } else {
+            imprimeCaminho(origem, this.antecessor[v]);
+            System.out.println(v);
+        }
     }
 }

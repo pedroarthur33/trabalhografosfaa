@@ -131,12 +131,12 @@ public class Principal extends javax.swing.JFrame {
 
     private void jMenuItemlarguraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemlarguraActionPerformed
         
-        grafo = new Grafo(parser.getMatriz().length,parser.getMatriz().length);
-        parser.ParserBFSDFS(grafo);
-        grafo.imprime();
+        //grafo = new Grafo(parser.getMatriz().length,parser.getMatriz().length);
+        //parser.ParserBFSDFS(grafo);
+        //grafo.imprime();
         BuscaEmLargura largura = new BuscaEmLargura(grafo);
         try {
-            largura.visitaBfs(grafo.getNumVertices(), grafo.getCab());
+            //largura.visitaBfs(grafo.getNumVertices(), grafo.getCab());
         } catch (Exception ex) {
             Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -145,25 +145,15 @@ public class Principal extends javax.swing.JFrame {
 
     private void jMenuItemprofundidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemprofundidadeActionPerformed
         
-        grafo = new Grafo(parser.getMatriz().length,parser.getMatriz().length);
-        parser.ParserBFSDFS(grafo);
+        //grafo = new Grafo(parser.getMatriz().length,parser.getMatriz().length);
+        //parser.ParserBFSDFS(grafo);
         //grafo.imprime();
         BuscaEmProfundidade profundidade = new BuscaEmProfundidade(grafo);
-        profundidade.visitaDfs(WIDTH, WIDTH, grafo.getCab());
+        //profundidade.visitaDfs(WIDTH, WIDTH, grafo.getCab());
     }//GEN-LAST:event_jMenuItemprofundidadeActionPerformed
 
     private void jMenuItemDijkstraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemDijkstraActionPerformed
-        
-        grafo = new Grafo(parser.getMatriz().length,parser.getMatriz().length);
-        try {
-            parser.ParserDijkstra(grafo);
-            Dijkstra dijkstra = new Dijkstra(grafo);
-            dijkstra.imprimeCaminho(0, grafo.getNumVertices());
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
-        }
+
         
         
     }//GEN-LAST:event_jMenuItemDijkstraActionPerformed
