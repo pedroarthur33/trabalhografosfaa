@@ -4,16 +4,16 @@ package FAA.TG.Algoritmos.Fila;
 public class Fila {
 	
   private Integer item[];
-  private int    frente, tras;
+  private Integer    frente, tras;
   
   // Operações 
   public Fila () { // Cria uma fila vazia
-    this.item = new Integer[1000];
+    this.item = new Integer[10000];
     this.frente = 0;
     this.tras = this.frente;
   }
   
-  public Fila (int maxTam) { // Cria uma fila vazia
+  public Fila (Integer maxTam) { // Cria uma fila vazia
     this.item = new Integer[maxTam];
     this.frente = 0;
     this.tras = this.frente;
@@ -40,13 +40,13 @@ public class Fila {
     return (this.frente == this.tras);
   }
   
-  public int tamanho(){
+  public Integer tamanho(){
       return this.tras;
   }
   
   public void imprime () {
     for (int i = this.frente; i != this.tras; i = (i + 1) % this.item.length)
-      System.out.print("[" + this.item[i].toString() + "]");
+      System.out.print("[" + this.item[i] + "]");
     System.out.println("");
   }
 }

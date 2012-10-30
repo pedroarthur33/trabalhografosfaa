@@ -19,7 +19,7 @@ private Grafo grafo;
         this.grafo = grafo;
     }
     public void obterArvoreCMC(int raiz) throws Exception {
-        int n = this.grafo.numVertices();
+        int n = this.grafo.getNumVertices();
         this.p = new double[n];
         // peso dos vértices
         int vs[] = new int[n + 1];
