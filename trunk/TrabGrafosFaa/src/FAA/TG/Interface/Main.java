@@ -37,9 +37,11 @@ public class Main {
         System.out.println("Busca em profundidade:");
         p.imprimeCaminho(0, 4);
         
+        System.out.println("");
         Dijkstra d = new Dijkstra(grafo);
-        
-        //d.imprimeCaminho(0, 4);
+        d.obterArvoreCMC(0);
+        System.out.println("Dijkstra:");
+        d.imprimeCaminho(0, 4);
         
     }    
 }
