@@ -24,15 +24,22 @@ public class Main {
         Grafo grafo = parser.ParserBFSDFS();
         grafo.imprime();
         
-        //BuscaEmLargura largura = new BuscaEmLargura(grafo);
-        //largura.buscaEmLargura();
+        BuscaEmLargura largura = new BuscaEmLargura(grafo);
+        largura.buscaEmLargura();
+        
+        System.out.println("");
+        System.out.println("Busca em largura:");
+        largura.imprimeCaminho(0, 4);
  
+        System.out.println("");
         BuscaEmProfundidade p = new BuscaEmProfundidade(grafo);
         p.buscaEmProfundidade();
+        System.out.println("Busca em profundidade:");
         p.imprimeCaminho(0, 4);
         
         Dijkstra d = new Dijkstra(grafo);
-        d.imprimeCaminho(0, 4);
+        
+        //d.imprimeCaminho(0, 4);
         
     }    
 }
