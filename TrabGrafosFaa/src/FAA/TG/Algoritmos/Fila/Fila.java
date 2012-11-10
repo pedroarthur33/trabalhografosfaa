@@ -8,7 +8,7 @@ public class Fila {
   
   // Operações 
   public Fila () { // Cria uma fila vazia
-    this.item = new Integer[10000];
+    this.item = new Integer[100];
     this.frente = 0;
     this.tras = this.frente;
   }

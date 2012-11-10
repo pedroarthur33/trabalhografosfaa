@@ -81,7 +81,6 @@ public class Grafo {
     // Retorna a primeira aresta que o vértice v participa ou
     // null se a lista de adjacência de v for vazia
     public Aresta primeiroListaAdj(int v) {
-
         this.pos[v] = -1;
         return this.proxAdj(v);
     }

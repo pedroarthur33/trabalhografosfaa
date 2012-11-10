@@ -26,7 +26,7 @@ public class BuscaEmLargura {
         this.antecessor = new int[n];
     }
 
-    public Grafo visitaBfs(int u, int cor[]) throws Exception {
+    private void visitaBfs(int u, int cor[]) throws Exception {
         cor[u] = cinza;
         this.d[u] = 0;
         Fila fila = new Fila();
@@ -40,16 +40,15 @@ public class BuscaEmLargura {
                     int v = a.getV2();
                     if (cor[v] == branco) {
                         cor[v] = cinza;
+                        this.d[v] = this.d[u] + 1;
+                        this.antecessor[v] = u;
+                        fila.enfileira(new Integer(v));
                     }
-                    this.d[v] = this.d[u] + 1;
-                    this.antecessor[v] = u;
-                    fila.enfileira(new Integer(v));
+                    a = this.grafo.proxAdj(u);
                 }
-                a = this.grafo.proxAdj(u);
             }
+            cor[u] = preto;
         }
-        cor[u] = preto;
-        return grafo;
     }
 
     public void buscaEmLargura() throws Exception {
