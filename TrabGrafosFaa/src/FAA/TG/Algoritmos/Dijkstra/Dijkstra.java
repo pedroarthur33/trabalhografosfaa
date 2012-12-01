@@ -37,9 +37,8 @@ private Grafo grafo;
         heap.constroi();
         while (!heap.vazio()) {
             int u = heap.retiraMin();
-            if ( ! this.grafo.listaAdjVazia(u) 
-                ) {
-        Grafo.Aresta adj;
+            if (! this.grafo.listaAdjVazia(u)) {
+                Grafo.Aresta adj;
                 adj = grafo.primeiroListaAdj(u);
                 while (adj != null) {
                     int v = adj.getV2();
