@@ -71,6 +71,6 @@ public class MeuGrafo {
         //Cria o XML
         new MeuGrafo("grafo.xml");
         //Cria a Visualização Apontando o XML criado
-        new VisualisadorDeGrafo("grafo.xml");
+//        new VisualisadorDeGrafo("grafo.xml");
     }
 }
